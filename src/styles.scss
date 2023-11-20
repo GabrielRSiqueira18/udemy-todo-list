@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background-color: $purple-100;
+}
+
+:focus {
+  outline: 0;
+}
+
+.container {
+  width: 350px;
+  margin: 0 auto;
+  padding: 1rem;
+}
