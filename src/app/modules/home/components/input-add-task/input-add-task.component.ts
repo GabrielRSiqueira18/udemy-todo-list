@@ -14,7 +14,7 @@ export class InputAddTaskComponent {
     const taskValueFormated = this.taskValue.trim();
 
     if(taskValueFormated) {
-      this.emitAddTaskValue.emit(this.taskValue);
+      this.emitAddTaskValue.emit(taskValueFormated);
       this.taskValue = "";
     }
   }

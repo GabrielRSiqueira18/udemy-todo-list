@@ -1,0 +1,24 @@
+@import "../../../../../variables.scss";
+
+div {
+  width: 80%;
+  padding: 0.5rem;
+  background-color: $purple-500;
+  display: flex;
+  margin: 0 auto;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  position: relative;
+
+  input {
+    all: unset;
+    color: $gray-100;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+
+    &::placeholder {
+      color: $gray-100;
+    }
+  }
+}

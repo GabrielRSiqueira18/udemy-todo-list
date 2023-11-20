@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './button-remove-tasks.component.html',
   styleUrl: './button-remove-tasks.component.scss'
 })
-export class ButtonRemoveTasksComponent {
-
-}
+export class ButtonRemoveTasksComponent {}

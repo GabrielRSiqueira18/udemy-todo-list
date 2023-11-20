@@ -16,4 +16,8 @@ export class TasksListComponent {
     })
   }
 
+  public removeAllTasks() {
+    this.itemsTaskList = []
+  }
+
 }

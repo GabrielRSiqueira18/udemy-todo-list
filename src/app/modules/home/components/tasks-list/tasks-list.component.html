@@ -19,4 +19,4 @@
   </div>
 </div>
 <app-input-add-task (emitAddTaskValue)="setItemInTaskList($event)"></app-input-add-task>
-<app-button-remove-tasks></app-button-remove-tasks>
+<app-button-remove-tasks (click)="removeAllTasks()"></app-button-remove-tasks>
