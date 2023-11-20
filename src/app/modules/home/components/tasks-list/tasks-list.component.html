@@ -1,9 +1,9 @@
-<div class="tasks-container">
-  <div
-    *ngFor="let task of itemsTaskList; let i = index"
+<div [ngClass]="{'bg-without-items-in-list': !itemsTaskList.length}" class="tasks-container">
+  <ul
     class="task-container"
+    *ngIf="itemsTaskList.length"
   >
-    <div>
+    <li *ngFor="let task of itemsTaskList; let i = index">
       <input
         type="checkbox"
         [(ngModel)]="task.checked"
@@ -11,12 +11,15 @@
       <input
         type="text"
         [(ngModel)]="task.value"
+        [ngStyle]="{ 'text-decoration': task.checked ? 'line-through' : 'none'}"
       >
-    </div>
-    <button>
-      <img src="assets/dump.svg" alt="">
-    </button>
-  </div>
+      <button
+        (click)="deleteTask(i)"
+      >
+        <img src="assets/dump.svg" alt="">
+      </button>
+    </li>
+  </ul>
 </div>
 <app-input-add-task (emitAddTaskValue)="setItemInTaskList($event)"></app-input-add-task>
-<app-button-remove-tasks (click)="removeAllTasks()"></app-button-remove-tasks>
+<app-button-remove-tasks *ngIf="itemsTaskList.length" (click)="removeAllTasks()"></app-button-remove-tasks>

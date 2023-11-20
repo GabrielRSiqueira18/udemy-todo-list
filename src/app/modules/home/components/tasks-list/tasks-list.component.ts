@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { TaskList } from '../../../../interfaces/task-list';
 
 @Component({
@@ -6,8 +6,12 @@ import { TaskList } from '../../../../interfaces/task-list';
   templateUrl: './tasks-list.component.html',
   styleUrl: './tasks-list.component.scss'
 })
-export class TasksListComponent {
+export class TasksListComponent implements DoCheck {
   public itemsTaskList: TaskList[] = [];
+
+  ngDoCheck(): void {
+    this.itemsTaskList.sort((a, b) => Number(a.checked) - Number(b.checked))
+  }
 
   public setItemInTaskList(taskValue: string) {
     this.itemsTaskList.push({
@@ -18,6 +22,10 @@ export class TasksListComponent {
 
   public removeAllTasks() {
     this.itemsTaskList = []
+  }
+
+  public deleteTask(index: number) {
+    this.itemsTaskList.splice(index, 1)
   }
 
 }
