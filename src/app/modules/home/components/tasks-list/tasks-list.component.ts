@@ -7,10 +7,11 @@ import { TaskList } from '../../../../interfaces/task-list';
   styleUrl: './tasks-list.component.scss'
 })
 export class TasksListComponent implements DoCheck {
-  public itemsTaskList: TaskList[] = [];
+  public itemsTaskList: TaskList[] = JSON.parse(localStorage.getItem("@udemy/todo-list") || '[]');
 
   ngDoCheck(): void {
     this.itemsTaskList.sort((a, b) => Number(a.checked) - Number(b.checked));
+    this.setLocalStorage();
   }
 
   public setItemInTaskList(taskValue: string) {
@@ -40,6 +41,12 @@ export class TasksListComponent implements DoCheck {
           this.itemsTaskList[index].value = newValueTask
         } while(!this.itemsTaskList[index].value)
       }
+    }
+  }
+
+  public setLocalStorage() {
+    if(this.itemsTaskList) {
+      localStorage.setItem("@udemy/todo-list", JSON.stringify(this.itemsTaskList))
     }
   }
 
