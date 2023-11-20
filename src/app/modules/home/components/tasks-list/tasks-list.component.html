@@ -1,5 +1,22 @@
 <div class="tasks-container">
-
+  <div
+    *ngFor="let task of itemsTaskList; let i = index"
+    class="task-container"
+  >
+    <div>
+      <input
+        type="checkbox"
+        [(ngModel)]="task.checked"
+      >
+      <input
+        type="text"
+        [(ngModel)]="task.value"
+      >
+    </div>
+    <button>
+      <img src="assets/dump.svg" alt="">
+    </button>
+  </div>
 </div>
-<app-input-add-task></app-input-add-task>
+<app-input-add-task (emitAddTaskValue)="setItemInTaskList($event)"></app-input-add-task>
 <app-button-remove-tasks></app-button-remove-tasks>

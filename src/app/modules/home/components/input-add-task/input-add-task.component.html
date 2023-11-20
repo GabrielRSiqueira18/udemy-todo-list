@@ -1,1 +1,5 @@
-<p>input-add-task works!</p>
+<input
+  (keyup.enter)="addTaskValue()"
+  [(ngModel)]="taskValue"
+  type="text"
+>

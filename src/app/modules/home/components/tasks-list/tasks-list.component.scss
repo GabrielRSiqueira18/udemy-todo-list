@@ -1,0 +1,45 @@
+@import "../../../../../variables.scss";
+
+.tasks-container {
+  width: 100%;
+  min-height: 250px;
+  padding: 1rem;
+  background-color: $gray-100;
+}
+
+.task-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 0.5rem;
+
+    input {
+      color: $gray-300;
+    }
+
+    input[type="checkbox"] {
+      width: 15px;
+      background-color: $gray-300;
+    }
+
+    input[type="text"] {
+      border: 0;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
