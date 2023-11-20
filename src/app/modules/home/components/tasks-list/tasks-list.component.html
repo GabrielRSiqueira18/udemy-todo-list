@@ -12,6 +12,7 @@
         type="text"
         [(ngModel)]="task.value"
         [ngStyle]="{ 'text-decoration': task.checked ? 'line-through' : 'none'}"
+        (keyup)="validValue(task.value, i)"
       >
       <button
         (click)="deleteTask(i)"
